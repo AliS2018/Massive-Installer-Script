@@ -10,22 +10,14 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
 sudo apt-get update
 #Download the debian installer for your Ubuntu Server 18.04.xx
-echo "||||||||||||||||||||||||||||||RUN ME AS ROOT|||||||||||||||||||||||||||||||||||"
-sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
+echo "||||||||||||||              RUNNING SOME ERRANDS                  |||||||||||||"
+sleep 1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-sleep .1
-echo "|||||||||||||||||||||GO TO THE SCRIPT LOCATION AND TYPE IN:||||||||||||||||||||"
-sleep 3
-echo "||||||||||||||||||        sudo ./scriptname.sh             ||||||||||||||||||||"
-sleep 3
-echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-sleep .1
-echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-sleep .1
+sleep 1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
@@ -41,15 +33,15 @@ sleep .1
 echo ""
 echo ""
 echo ""
-echo "Installer Starts in 3...
+echo "Installer Starts in 3..."
 sleep .1
-echo "                      2...
+echo "                      2..."
 sleep .1
 echo "                        1..."
 sleep .3
 echo "********************      CREATING DIRECTORIES...    ***********************"
 sleep .5
-cd /temp_data01/
+cd ~/temp_data01/
 echo "********************      PULLING INSTALLERS...      ***********************"
 sleep .2
 wget https://downloads.plex.tv/plex-media-server/1.14.1.5488-cc260c476/plexmediaserver_1.14.1.5488-cc260c476_amd64.deb
@@ -60,13 +52,19 @@ echo "********************      STARTING SERVICES...       *********************
 sleep .5
 sudo systemctl enable plexmediaserver.service
 sudo systemctl start plexmediaserver.service
-
+sleep 4
 echo "========================================================="
 sleep .2
 echo "=======Thanks for installing Plex Media Server==========="
 sleep .3
 echo "========================================================="
 sleep .4
+echo ""
+sleep .1
+echo ""
+sleep .1
+echo ""
+sleep .2
 echo "========================================================="
 sleep .1
 echo "===========               DONE           ================"
@@ -74,3 +72,7 @@ sleep .1
 echo "========================================================="
 sleep .1
 
+echo "Returning to the Main page..."
+sleep 3
+        cd ~/
+       ./MIS.sh

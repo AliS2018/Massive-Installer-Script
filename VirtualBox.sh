@@ -9,14 +9,14 @@ echo "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
-echo "||||||||||||||          RUNNING SOME BASE SERVICES                |||||||||||||"
+echo "||||||||||||||              RUNNING SOME ERRANDS                  |||||||||||||"
 sleep 1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep 1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-
+sleep 2
 echo "==============================================================================="
 sleep .2
 echo "=====                                                                   ======="
@@ -85,7 +85,7 @@ sleep 2
 
 echo "********************              SETTING UP A VBOX KEY...                 ***********************************"
 echo "********************         CREATING TEMPORARY DIRECTORIES...             ***********************************"
-cd /temp_data01/Massive-Installer-Script/
+cd ~/temp_data01/
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 apt update
 echo "********************                   ===DONE===                          ***********************************"
@@ -111,7 +111,7 @@ sleep .1
 echo ""
 
 echo "********************               PULLING EXTENSION PACK...               ***********************************"
-cd /temp_data01/Massive-Installer-Script/
+cd /temp_data01/
 wget https://download.virtualbox.org/virtualbox/6.1.0/Oracle_VM_VirtualBox_Extension_Pack-6.1.0-135406.vbox-extpack
 sleep 2
 echo "Configuring the package..."
@@ -124,7 +124,7 @@ sleep .5
 echo "********************                  INSTALLING phpVirtualBox...          ***********************************"
 echo ""
 sleep .5
-cd /temp_data01/Massive-Installer-Script/
+cd ~/temp_data01/
 apt install --yes apache2 php php-mysql libapache2-mod-php php-soap php-xml
 unzip phpvirtualbox-6.1.zip
 mv phpvirtualbox-6.1/ /var/www/html/phpvirtualbox
@@ -138,10 +138,22 @@ systemctl restart vboxdrv
 systemctl restart apache2
 echo "@@@@@@@@@@@@@@@@@@@                       DONE...                          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 sleep .5
-echo "Please continue the configuration by following the site:  https://www.ostechnix.com/install-oracle-virtualbox-ubuntu-16-04-headless-server/"
+echo "To configure your phpVirtualBox you must go to /var/www/html/phpvirtualbox and change some key variables under your server IP"
 sleep 1
 echo "Thanks!"
+sleep 10
+echo "If you need to run Remote Desktop on your VM type in the following thing > > > VBoxManage modifyvm YOUR-VM-NAME --vrdeaddress "  hostname -I | cut -f1 -d' ' echo "IP address of your local server/machine"
+sleep 10
+echo "To run your VirtualBox client, so that it can let you log into the system type in the following command on your terminal: > > > |vboxwebsrv| < < < "
+sleep 10
+echo "++++++++++++++++++++++++++++++++++"
 sleep 1
+echo "++++ LOCAL USERNAME: admin    ++++"
+sleep 1
+echo "++++ LOCAL PASSWORD: admin    ++++"
+sleep 1
+echo "++++++++++++++++++++++++++++++++++"
+sleep 10
 echo "==============================================================================="
 sleep .5
 echo "=====       THE INSTALLATION HAS BEEN SUCCESSFULLY COMPLETED            ======="
@@ -155,4 +167,8 @@ sleep .2
 echo "======                Copyright 2020 Ali Sadykov     v.2.1              ======="
 sleep .2
 echo "==============================================================================="
-vboxwebsrv
+
+echo "Returning to the Main page..."
+sleep 3
+        cd ~/
+       ./MIS.sh

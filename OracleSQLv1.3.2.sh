@@ -1,26 +1,18 @@
 #!/bin/bash
-#This is a Debian Installer Script for Products based on Ubuntu 18.04 version 1.3©Ali Sadykov
+#This is a Debian Installer Script for Products based on Ubuntu 18.04 version 1.3.2B©Ali Sadykov
 #This script is not supported by ARM64 architecture (Raspberry Pi, etc...), thus preventing the correct Docker functionality.
 #If you wish to improve the script by adding logical parts and statements, please send your copy to the following email --> maintenanceos.mos@gmail.com Thank You!
-#Current Script version 1.3.35B Improvements Pending <-no commercial use->
+#Current Script version 1.3.91B Improvements Pending <-no commercial use->
 # RUN THIS SCRIPT AS ROOT!
 
-echo "||||||||||||||||||||||||||||||RUN ME AS ROOT|||||||||||||||||||||||||||||||||||"
-sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
+echo "||||||||||||||              RUNNING SOME ERRANDS                  |||||||||||||"
+sleep 1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-sleep .1
-echo "|||||||||||||||||||||GO TO THE SCRIPT LOCATION AND TYPE IN:||||||||||||||||||||"
-sleep 3
-echo "||||||||||||||||||        sudo ./scriptname.sh             ||||||||||||||||||||"
-sleep 6
-echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-sleep .1
-echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-sleep .1
+sleep 1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
@@ -112,7 +104,7 @@ echo "********************                  ====DONE====                        
 sleep .1
 echo ""
 echo "********************               PULLING CONFIG FILE...                  ***********************************"
-cd /temp_data01/
+cd ~/temp_data01/
 git clone https://github.com/AliS2018/DockerSQL-SDS.git
 echo "********************                  ====DONE====                         ***********************************"
 echo ""
@@ -128,7 +120,7 @@ sleep .1
 echo "...." 
 sleep .1 
 echo "....."
-cd DockerSQL-SDS/
+cd ~/temp_data01/DockerSQL-SDS/
 docker-compose -f universalhost.yml up -d
 sleep .5
 docker logs oracle_sqlserver
@@ -170,7 +162,7 @@ echo "=================================="
 sleep .2
 echo "              DONE                "
 echo ""
-sleep 4
+sleep 10
 echo "==============================================================================="
 sleep .2
 echo "=====       THE INSTALLATION HAS BEEN SUCCESSFULLY COMPLETED            ======="
@@ -184,3 +176,8 @@ sleep .2
 echo "======                Copyright 2020 Ali Sadykov     v.1.3.2 Online     ======="
 sleep .2
 echo "==============================================================================="
+
+echo "Returning to the Main page..."
+sleep 3
+        cd ~/
+       ./MIS.sh

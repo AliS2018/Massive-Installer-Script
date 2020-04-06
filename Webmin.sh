@@ -11,3 +11,8 @@ add-apt-repository "deb https://download.webmin.com/download/repository sarge co
 ##Install webmin
 apt update && apt upgrade -y
 apt install webmin -y
+
+echo "Returning to the Main page..."
+sleep 3
+        cd ~/
+       ./MIS.sh
