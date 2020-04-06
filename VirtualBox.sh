@@ -142,7 +142,7 @@ echo "To configure your phpVirtualBox you must go to /var/www/html/phpvirtualbox
 sleep 1
 echo "Thanks!"
 sleep 10
-echo "If you need to run Remote Desktop on your VM type in the following thing > > > VBoxManage modifyvm YOUR-VM-NAME --vrdeaddress "  hostname -I | cut -f1 -d' ' echo "IP address of your local server/machine"
+echo "If you need to run Remote Desktop on your VM type in the following thing > > > VBoxManage modifyvm YOUR-VM-NAME --vrdeaddress "  hostname -I | cut -f1 -d' ' ; echo "IP address of your local server/machine"
 sleep 10
 echo "To run your VirtualBox client, so that it can let you log into the system type in the following command on your terminal: > > > |vboxwebsrv| < < < "
 sleep 10
