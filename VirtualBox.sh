@@ -124,8 +124,8 @@ sleep .5
 echo "********************                  INSTALLING phpVirtualBox...          ***********************************"
 echo ""
 sleep .5
-cd ~/temp_data01/
 apt install --yes apache2 php php-mysql libapache2-mod-php php-soap php-xml
+cd ~/temp_data01/Massive-Installer-Script
 unzip phpvirtualbox-6.1.zip
 mv phpvirtualbox-6.1/ /var/www/html/phpvirtualbox
 chmod 777 /var/www/html/phpvirtualbox/
