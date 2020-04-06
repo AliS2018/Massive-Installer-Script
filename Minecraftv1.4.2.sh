@@ -25,10 +25,10 @@ echo "*******                                                                   
 sleep .4
 echo "*******                                                                               *******"
 sleep .4
-echo "*******" if dpkg -l | grep openjdk-8-jre; then                         echo "         *******"
-    echo "You have Open JDK 8 installed on your system >> continuing..."
+ if dpkg -l | grep openjdk-8-jre; then
+echo "*******      You have Open JDK 8 installed on your system >> continuing...            *******"
 else
-    echo "You don't have Open JDK installed on your system << stopping..."
+echo "*******      You don't have Open JDK installed on your system << stopping...          *******"
     sleep .5
     read -p "Install open-jdk-8 on the server (y/n)?" choice
     if [ "$choice" = "y" ]; then
