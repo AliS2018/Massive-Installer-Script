@@ -44,7 +44,7 @@ sleep .5
 echo "@@@@@@@@@@@@@@@@@@@@  CHECKING YOUR INTERNET CONNECTION...  @@@@@@@@@@@@@@@@@@@@"
 #Checking internet connection by resolving names
 #If Ping doesn't work correctly this program/script will show an error and exit uppon that mentioned error.
-if ping -q -c 5 -W 5 virtualbox.org >/dev/null; then
+if ping -q -c 5 -W 5 google.com >/dev/null; then
     echo "You have a Stable Internet Connection, The Installer may proceed..."
 else
     echo "You don't have a Stable Internet connection, please fix any errors/issues regarding this problem and relaunch this Script again. Thanks!"
