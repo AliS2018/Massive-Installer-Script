@@ -74,7 +74,7 @@ if [ -d ~/temp_data01/Massive-Installer-Script/DockerManager/ ]
         git clone https://github.com/AliS2018/Massive-Installer-Script.git
         cd ~/temp_data01/Massive-Installer-Script/DockerManager
         chmod +x Docker-Installer.sh
-        chmod +x OracleSQL.sh
+        chmod +x OracleSQLv1.4.sh
         chmod +x EngineX.sh
         chmod +x gitlab.sh
         chmod +x portainer-enabler.sh
@@ -84,7 +84,7 @@ fi
 echo "Loading Tools..."
 sleep 5
 
-echo "NOTE: If you don't have Docker installed and configured, this script will fail automatically ! ! ! "
+echo "NOTE: If you don't have Docker installed and configured, this script will automatically fail ! ! ! "
 
 HEIGHT=20
 WIDTH=80
@@ -96,14 +96,14 @@ MENU="Choose one of the following options:"
 
 OPTIONS=(1 "Install Docker and Docker-Compose"
          2 "Install OracleSQL"
-         3 "Install NGINX"
-         4 "Install GitLab"
-         5 "Install Portainer"
+         3 "Install NGINX <unavailable>"
+         4 "Install GitLab <unavailable>"
+         5 "Install Portainer <unavailable>"
          6 "Install WordPress"
-         7 "More..."
+         7 "More... <unavailable>"
          8 "<|  Return  |>"
          9 "Remove Docker Cache"
-         10 "Check Data?")
+         10 "Check Data? <DUH?!?!?!>")
 
 CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -148,65 +148,38 @@ case $CHOICE in
                     sleep 3
                     echo "Please Install Docker first and only then start this installer!"
                     sleep 5
-                    cd ~/
-                    ./MIS.sh
+                   cd ~/Mass-Installer-Script/DockerManager/
+                    ./Launcher
                 echo "================DONE====================="
             fi
             ;;
        3)
-           echo "Installing Plex Media Server is in Progress..."
-                  sleep 4
-                  if apt list --installed | grep plexmediaserver; then
-                       echo "Your System has Plex Media Server Installed and Updated! Skipping > > > > "
-                       sleep 3
-                       cd ~/
-                      ./MIS.sh
-                   else
-                   sleep 1
-                       echo "Plex Media Server was Not Found on Your System! Continuing > > > > "
-                       sleep 3
-                       cd ~/temp_data01/Massive-Installer-Script/
-                       ./PMSI\ V2.0.sh
-                       echo "================DONE====================="
-                       fi
+    
                   ;;
        4)
-           echo "Installing Virtualbox Online Client is in Progress..."
-                  sleep 4
-                  if dpkg -l | grep virtualbox; then
-                       echo "Your System has phpVirtualbox Installed and Updated! Skipping > > > > "
-                       sleep 3
-                      cd ~/
-                      ./MIS.sh
-                   else
-                   sleep 1
-                       echo "phpVirtualbox was Not Found on Your System! Continuing > > > > "
-                       sleep 3
-                       cd ~/temp_data01/Massive-Installer-Script/
-                       ./VirtualBox.sh
-                       echo "================DONE====================="
-                       fi
+    
                   ;;
        5)
-           echo "Installing Minecraft server client is in progress..."
-                  sleep 4
-                  if [-d /var/minecraft]
-                   then
-                       echo "Minecraft Directory Already Exists! Skipping > > > > "
-                       sleep 3
-                      cd ~/
-                      ./MIS.sh
-                   else
-                   sleep 1
-                       echo "Minecraft Server directory was not found on your system! Continuing > > > > "
-                       sleep 3
-                       cd ~/temp_data01/Massive-Installer-Script/
-                       ./Minecraftv1.4.2.sh
-                       echo "================DONE====================="
-                       fi
+           
                   ;;
        6)
-              
+            echo "Installing WordPress is in Progress..."
+                    sleep 4
+                if dpkg -l | grep docker; then
+                    echo "Your system has Docker/Docker-Compose client installed and updated! Continuing > > > > "
+                    sleep 2
+                    cd ~/temp_data01/Massive-Installer-Script/DockerManager
+                    ./WordPress.sh
+                else
+                    sleep 1
+                    echo "No Docker was found on your system! <!> <!> <!> <!> "
+                    sleep 3
+                    echo "Please Install Docker first and only then start this installer!"
+                    sleep 5
+                    cd ~/Mass-Installer-Script/DockerManager/
+                    ./Launcher
+                    echo "================DONE====================="
+                fi
                   ;;
        7)
                   ;;
@@ -214,7 +187,7 @@ case $CHOICE in
            echo "Returning Back to the Main Menu..."
                     sleep 4
                     cd ~/
-                    ./MIS1.2.1.sh
+                    ./Mass-Installer.sh
                   ;;
        9)
            echo "Exit Sequence has been Initiated..."
@@ -249,3 +222,4 @@ case $CHOICE in
                   exit 0
                   ;;
 esac
+##DOCKER CHECK CONSISTENCY
