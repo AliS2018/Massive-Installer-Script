@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##Add key server repo for webmin
-cd /root
+cd ~/temp_data01/
 wget http://www.webmin.com/jcameron-key.asc
 apt-key add jcameron-key.asc
 
@@ -19,4 +19,4 @@ sleep 15
 echo "Returning to the Main page..."
 sleep 3
         cd ~/
-       ./MIS.sh
+       ./Mass-Installer.sh
