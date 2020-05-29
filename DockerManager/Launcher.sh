@@ -21,9 +21,9 @@ echo "@@@@@@@@@@@@ CHECKING YOUR INTERNET CONNECTION @@@@@@@@@@@@@@"
 #If Ping doesn't work correctly this program/script will show an error and exit uppon that mentioned error.
 
 if ping -q -c 5 -W 5 google.com >/dev/null; then
-    echo "You have a Stable Internet Connection, The Installer may proceed..."
+    echo "You have a Stable Internet Connection, The Installer may Proceed..."
 else
-    echo "You don't have a Stable Internet connection, please fix any errors/issues regarding this problem and relaunch this Script again. Thanks!"
+    echo "You don't have a Stable Internet Connection, Please Fix any Inconsistencies regarding this Problem and Relaunch this Script Again. Thanks!"
     exit 1
 fi
 
@@ -31,11 +31,11 @@ fi
 # If a server doesn't have it installed, Script will automatically install it
 
 if dpkg -l | grep '^ii'| grep 'dialog'|  grep '1.3-20171209-1'; then
-    echo "The Massive Installer Script will launch shortly..."
+    echo "The Mass Installer - Docker Launcher Panel will launch shortly..."
     sleep 3
 else
-    echo "NO (dialog) package is found on this server! "
-    echo "installing the package..."
+    echo "No Package is Found on This Server! "
+    echo "Installing the Package..."
     sleep 2
     for x in {1..100} ; do
         sleep .1    # do some work here
@@ -85,7 +85,7 @@ echo "Loading Tools..."
 sleep 5
 
 echo "NOTE: If you don't have Docker installed and configured, this script will automatically fail ! ! ! "
-
+sleep 5
 HEIGHT=20
 WIDTH=80
 CHOICE_HEIGHT=5
@@ -123,7 +123,7 @@ case $CHOICE in
             if apt list --installed | grep docker-ce-cli && dpkg -l | grep docker; then
                 echo "Your System has Docker/Docker-Compose Client Installed and Updated! Launching the Manager > > > > "
                 sleep 3
-                cd ~/Mass-Installer-Script/DockerManager/
+                cd ~/Massive-Installer-Script/DockerManager/
                 ./Launcher
             else
                 sleep 1
