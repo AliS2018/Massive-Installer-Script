@@ -1,9 +1,11 @@
 #!/bin/bash
-#This is a Debian Installer Script for Products based on Ubuntu 18.04 version 1.3©Ali Sadykov
+#This is a Debian Installer Script for Products based on Ubuntu 18.04 version 2.1©Ali Sadykov
 #This script is not supported by ARM64 architecture (Raspberry Pi, etc...), thus preventing the correct Docker functionality.
 #If you wish to improve the script by adding logical parts and statements, please send your copy to the following email --> maintenanceos.mos@gmail.com Thank You!
-#Current Script version 1.3.35B Improvements Pending <-no commercial use->
+#Current Script version 2.1.65B Improvements Pending <-no commercial use->
 # RUN THIS SCRIPT AS ROOT!
+DIR1="cd ~/"
+XBLE1="./Massive-Installer.sh"
 
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
@@ -37,10 +39,6 @@ echo ""
 sleep .5
 echo ""
 sleep .5
-echo ""
-sleep .5
-echo ""
-sleep .5
 echo "@@@@@@@@@@@@@@@@@@@@  CHECKING YOUR INTERNET CONNECTION...  @@@@@@@@@@@@@@@@@@@@"
 #Checking internet connection by resolving names
 #If Ping doesn't work correctly this program/script will show an error and exit uppon that mentioned error.
@@ -55,9 +53,9 @@ echo ""
 sleep .1
 echo "Installer Starts in 3..."
 sleep .1
-echo "                         2..."
+echo "Installer Starts in 2..."
 sleep .1
-echo "                            1..."
+echo "Installer Starts in 1..."
 sleep .1
 sleep 10
 echo "************************  ADDING NECESSARY REPOS FOR THE VBOX INSTALLATION... *********************************"
@@ -125,11 +123,9 @@ echo "********************                  INSTALLING phpVirtualBox...         
 echo ""
 sleep .5
 apt install --yes apache2 php php-mysql libapache2-mod-php php-soap php-xml
+apt install --yes unzip
 cd ~/temp_data01/Massive-Installer-Script/
-mv phpvirtualbox-6.1.zip /var/www/html/
-cd /var/www/html/
-unzip phpvirtualbox-6.1.zip
-rm -rf phpvirtualbox-6.1.zip
+unzip phpvirtualbox-6.1.zip /var/www/html/
 chmod -R 777 /var/www/html/phpvirtualbox/
 cp /var/www/html/phpvirtualbox/config.php-example /var/www/html/phpvirtualbox/config.php
 echo "********************                  ====DONE====                         ***********************************"
@@ -144,7 +140,8 @@ echo "To configure your phpVirtualBox you must go to /var/www/html/phpvirtualbox
 sleep 1
 echo "Thanks!"
 sleep 10
-echo "If you need to run Remote Desktop on your VM type in the following thing > > > VBoxManage modifyvm YOUR-VM-NAME --vrdeaddress "  hostname -I | cut -f1 -d' ' ; echo "IP address of your local server/machine"
+echo "If you need to run Remote Desktop on your VM type in the following thing > > > VBoxManage modifyvm YOUR-VM-NAME --vrdeaddress "  hostname -I | cut -f1 -d' ' ;
+echo "IP address of your local server/machine"
 sleep 10
 echo "To run your VirtualBox client, so that it can let you log into the system type in the following command on your terminal: > > > |vboxwebsrv| < < < "
 sleep 10
@@ -172,5 +169,5 @@ echo "==========================================================================
 
 echo "Returning to the Main page..."
 sleep 3
-        cd ~/
-       ./MIS.sh
+$DIR1
+$XBLE1

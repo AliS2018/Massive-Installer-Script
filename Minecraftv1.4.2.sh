@@ -4,6 +4,8 @@
 #If you wish to improve the script by adding logical parts and statements, please send your copy to the following email --> maintenanceos.mos@gmail.com Thank You!
 #Current Script version 1.4.65B Improvements Pending <-no commercial use->
 # RUN THIS SCRIPT AS ROOT!
+DIR="cd ~/"
+RET="./Massive-Installer.sh"
 
 echo "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 sleep .1
@@ -177,5 +179,5 @@ echo "==========================================================================
 
 echo "Returning to the Main page..."
 sleep 3
-        cd ~/
-       ./MIS.sh
+        $DIR
+        $RET

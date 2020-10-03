@@ -1,5 +1,6 @@
 #!/bin/bash
-
+ DIR1="cd ~/"
+ XBLE1="./Massive-Installer.sh"
 ##Add key server repo for webmin
 cd ~/temp_data01/
 wget http://www.webmin.com/jcameron-key.asc
@@ -18,5 +19,5 @@ echo ":10000// and you will be able to see the dashboard."
 sleep 15
 echo "Returning to the Main page..."
 sleep 3
-        cd ~/
-       ./Mass-Installer.sh
+        $DIR1
+        $XBLE1
